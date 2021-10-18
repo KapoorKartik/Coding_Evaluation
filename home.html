@@ -21,6 +21,27 @@
     search : https://newsapi.org/v2/everything?q=kashmir&apiKey=64e0aace335340ed8d357ca93e3f69cf
 */
 // Show random headlines
+let parent = document.getElementById('headline')
+function ShowHeadlines(){
+    fetch(`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=64e0aace335340ed8d357ca93e3f69cf`)
 
-
+    .then((res) =>{
+        return res.json()
+    })
+    .then(({articles})=>{
+        console.log(articles)
+        articles.forEach((news) => {
+            let div = document.createElement('div')
+            let title =  document.createElement('div')
+            title.innerHTML = news.title
+            let img =  document.createElement('img')
+            img.src = news.urlToImage
+            let dis =  document.createElement('div')
+            dis.innerHTML = news.description
+            div.append(img,title,dis)
+            parent.append(div)
+        })
+    })
+}
+ShowHeadlines()
 </script>
