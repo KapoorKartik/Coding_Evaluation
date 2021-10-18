@@ -77,10 +77,13 @@ fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=64e0aace335340ed8d357
 .then((res) =>{
         return res.json()
     })
-    .then(({articles} )=> {
+    .then(({articles} ) => {
         console.log('search',articles);
         localStorage.setItem('search_news' , JSON.stringify(articles))
     })
-    window.location.href = '/Coding_Evaluation/search.html'
+
+    setTimeout(() =>{
+        window.location.href = '/Coding_Evaluation/search.html'
+    },2000) 
 }
 </script>

@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <style>
+        #headline {
+            display : grid;
+            grid-template-columns : repeat(5,18%);
+            grid-gap : 2%;
+            margin : 10px auto
+        }
+        .headline_img {
+            width : 100%;
+        }
+    </style>
 </head>
 <body>
     <a href="home.html"><button>Home</button></a>
@@ -14,14 +25,14 @@
 <script>
     let parent = document.getElementById('headline')
     let articles = JSON.parse(localStorage.getItem("search_news"))
-    console.log(articles);
+    console.log('test',articles);
  function showSearch(){
     parent.innerHTML = null;
     articles.forEach((news) => {
             let div = document.createElement('div')
-            div.onclick = () => {
-                newpage(news)
-            }
+            // div.onclick = () => {
+            //     newpage(news)
+            // }
             let title =  document.createElement('div')
             title.innerHTML = news.title
             let img =  document.createElement('img')
