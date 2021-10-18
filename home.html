@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWS</title>
+    <style>
+        #headline {
+            display : grid;
+            grid-template-columns : repeat(5,18%);
+            grid-gap : 2%;
+            margin : 10px auto
+        }
+        .headline_img {
+            width : 100%;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -32,16 +43,22 @@ function ShowHeadlines(){
         console.log(articles)
         articles.forEach((news) => {
             let div = document.createElement('div')
+            div.onclick = newpage(news)
             let title =  document.createElement('div')
             title.innerHTML = news.title
             let img =  document.createElement('img')
+            img.setAttribute('class','headline_img')
             img.src = news.urlToImage
-            let dis =  document.createElement('div')
+          let dis =  document.createElement('div')
             dis.innerHTML = news.description
-            div.append(img,title,dis)
+            div.append(img,title, dis)
             parent.append(div)
         })
     })
 }
 ShowHeadlines()
+function newpage(news){
+    console.log('click')
+    window.location.href = '/Coding_Evaluation/news.html'
+}
 </script>
