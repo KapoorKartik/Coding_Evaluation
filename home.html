@@ -51,9 +51,9 @@ function ShowHeadlines(){
             let img =  document.createElement('img')
             img.setAttribute('class','headline_img')
             img.src = news.urlToImage
-          let dis =  document.createElement('div')
-            dis.innerHTML = news.description
-            div.append(img,title, dis)
+         /* let dis =  document.createElement('div')
+            dis.innerHTML = news.description */
+            div.append(img,title)
             parent.append(div)
         })
     })
