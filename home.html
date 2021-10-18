@@ -19,8 +19,8 @@
 </head>
 <body>
     <div>
-        <input type="text" placeholder="Search for news">
-        <button id="search">Search</button>
+        <input id="search" type="text" placeholder="Search for news">
+        <button onclick="searchNews()" >Search</button>
     </div>
     <div id="headline"></div>
 </body>
@@ -63,5 +63,24 @@ function newpage(news){
     localStorage.setItem('clicked_news' , JSON.stringify(news))
     console.log(news)
     window.location.href = '/Coding_Evaluation/news.html'
+}
+
+
+
+
+// search news
+function searchNews(){
+let query = document.getElementById('search').value
+fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=64e0aace335340ed8d357ca93e3f69cf`)
+
+
+.then((res) =>{
+        return res.json()
+    })
+    .then(({articles} )=> {
+        console.log('search',articles);
+        localStorage.setItem('search_news' , JSON.stringify(articles))
+    })
+    window.location.href = '/Coding_Evaluation/search.html'
 }
 </script>
