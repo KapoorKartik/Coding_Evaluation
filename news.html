@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    news
+    <div id="headline"></div>
 </body>
 </html>
+<script>
+
+let clicked_news = JSON.parse(localStorage.getItem('clicked_news'))
+console.log(clicked_news);
+let content = clicked_news.content
+document.body.append(content)
+</script>

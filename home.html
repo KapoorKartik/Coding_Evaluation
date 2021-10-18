@@ -43,7 +43,9 @@ function ShowHeadlines(){
         console.log(articles)
         articles.forEach((news) => {
             let div = document.createElement('div')
-            div.onclick = newpage(news)
+            div.onclick = () => {
+                newpage(news)
+            }
             let title =  document.createElement('div')
             title.innerHTML = news.title
             let img =  document.createElement('img')
@@ -58,7 +60,8 @@ function ShowHeadlines(){
 }
 ShowHeadlines()
 function newpage(news){
-    console.log('click')
+    localStorage.setItem('clicked_news' , JSON.stringify(news))
+    console.log(news)
     window.location.href = '/Coding_Evaluation/news.html'
 }
 </script>
